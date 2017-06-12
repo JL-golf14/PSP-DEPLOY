@@ -7,7 +7,7 @@ var admin = require("firebase-admin");
 
 
 admin.initializeApp({
- credential: admin.credential.cert("./server/firebase-service-account.json"),
+ credential: admin.credential.cert("https://amazing-client.herokuapp.com/auth/heroku/callback"),
  databaseURL: "https://psp-group.firebaseio.com/", // replace this line with your URL
 });
 /* This is where the magic happens. We pull the id_token off of the request,
