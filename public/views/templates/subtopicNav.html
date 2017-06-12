@@ -1,0 +1,47 @@
+
+<!--
+/* ============================================================================ *
+*         DESKTOP SUB NAV                                                        *
+* ============================================================================= */
+-->
+
+<div ng-controller="NavCtrl as nc" id="subtopicNav" class="row visible-sm-block visible-md-block visible-lg-block">
+  <div ng-class="{'active': '/home' == nc.params}" ng-click="nc.redirect('home')" class="col-md-2 col-sm-2 sub-nav">
+    <li><a ng-class="{'active': '/home' == nc.params}" ng-href="#!" type="button" class="btn-nav" style="color: white;"> Home </a></li>
+  </div>
+  <div ng-class="{'active': '/subtopics/{{subtopic.id}}' == nc.params}" ng-click="nc.redirect(subtopic.id)" ng-repeat="subtopic in nc.subTopic.list" class="col-md-2 col-sm-2 sub-nav">
+    <li><a ng-class="{'active': '/subtopics/{{subtopic.id}}' == nc.params}" ng-href="#!subtopics/{{subtopic.id}}" type="button" class="btn-nav"> {{subtopic.title}}</a></li>
+  </div>
+
+</div>
+
+
+<!--
+/* ============================================================================ *
+*         MOBILE SUB NAV                                                        *
+* ============================================================================= */
+-->
+
+<div class="navbar-wrapper visible-xs-block">
+  <nav class="navbar navbar-inverse" style="border-radius: 0px; background-color: #333333; margin-bottom: 0px;">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only"> Toggle navigation </span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand pull left" style="color: white;"> Explore Related Issues </a>
+      </div>
+      <div ng-controller="NavCtrl as nc" style="margin-top: 0px !important; padding-top: 0px !important;"id="navbar" class="navbar-collapse collapse">
+        <ul style="margin-top: 0px !important; padding-top: 0px !important;" class="nav navbar-nav">
+          <li><a href="#!" style="color: white;"> Home </a>
+          </li>
+          <li ng-repeat="subtopic in nc.subTopic.list" ><a ng-href="#!subtopics/{{subtopic.id}}" style="color: white;"> {{subtopic.title}} </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

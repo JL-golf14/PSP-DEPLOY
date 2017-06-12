@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PSP</title>
+
+
+      <script src="../vendors/Chart.js"></script>
+      <script src="https://apis.google.com/js/api.js"></script>
+      <script src="../vendors/angular.js" charset="utf-8"></script>
+      <script src="../vendors/angular-route.js" charset="utf-8"></script>
+      <script src="../vendors/angularfire.js" charset="utf-8"></script>
+      <script src="../vendors/firebase.js" charset="utf-8"></script>
+      <script src="../vendors/angular-chart.min.js"></script>
+      <script src="../scripts/config.js"></script>
+      <script src="../scripts/client.js"></script>
+      <script src="../vendors/angular-aria.js"></script>
+      <script src="../vendors/angular-animate.js" charset="utf-8"></script>
+      <script src="../vendors/angular-material.js"></script>
+      <script src="../vendors/svg-assets-cache.js"></script>
+
+
+
+      <link rel="stylesheet" href="../vendors/angular-material.css">
+
+      <script src="vendors/chartist.min.js" charset="utf-8"></script>
+        <link rel="stylesheet"href="vendors/chartist.min.css">
+
+      <script src="../scripts/controllers/admin-flagged-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/admin-manage-users-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/admin-reports-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/admin-topics-controller.js" charset="utf-8"></script>
+
+      <script src="../scripts/controllers/home-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/comment-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/login-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/idea-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/flag-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/nav-controller.js" charset="utf-8"></script>
+      <script src="../scripts/controllers/subtopics-controller.js" charset="utf-8"></script>
+
+      <script src="../scripts/factories/admin.factory.js" charset="utf-8"></script>
+      <script src="../scripts/factories/data.factory.js" charset="utf-8"></script>
+      <script src="../scripts/factories/topics.factory.js" charset="utf-8"></script>
+
+
+      <script src="../vendors/jquery.js" charset="utf-8"></script>
+      <script src="../vendors/bootstrap.js" charset="utf-8"></script>
+      <script src="../vendors/ui-bootstrap-tpls.js" charset="utf-8"></script>
+      <script src="../vendors/sweetalert2.min.js" charset="utf-8"></script>
+      <script src="https://use.fontawesome.com/32179b6885.js"></script>
+      <script src="../vendors/notyf.min.js" type="text/javascript"></script>
+      <script src="../vendors/angular-tooltips.js" type="text/javascript"></script>
+
+
+      <link rel="stylesheet" href="../vendors/sweetalert2.css">
+      <link rel="stylesheet" href="../vendors/bootstrap.min.css">
+      <link rel="stylesheet" href="../vendors/angular-tooltips.css">
+      <link rel="stylesheet" type="text/css" href="../vendors/notyf.min.css">
+      <link rel="stylesheet" href="../styles/styles.css">
+      <link rel="stylesheet" href="../styles/card.css">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body  ng-app="ConnectApp">
+
+    <div ng-include="'/views/templates/admin_bar.html'"></div>
+    <div ng-include="'/views/templates/mainNav.html'"></div>
+
+    <main ng-view autoscroll="true"></main>
+    <div ng-include="'/views/templates/footer.html'"></div>
+
+  </body>
+
+</html>

@@ -1,0 +1,698 @@
+/*//CHRIS*/
+/* ============================================================================= *
+*           MAIN TOPIC                                                           *
+* ============================================================================== */
+.active {
+  color: white !important;
+  background-color: #666666 !important;
+}
+
+.ct-chart-bar .ct-label.ct-horizontal.ct-end {
+font-size: 25px;
+color: black;
+
+}
+.ct-label.ct-vertical.ct-start {
+    font: 23px;
+    color:black;
+}
+
+
+.ct-series-a .ct-bar {
+  /* Colour of your bars */
+  stroke: rgb(25, 125, 241);
+  font: 33px;
+  /* The width of your bars */
+  stroke-width: 60px;
+  /* Yes! Dashed bars! */
+  /*stroke-dasharray: 20px;*/
+  /* Maybe you like round corners on your bars? */
+  /*stroke-linecap: round;*/
+}
+
+.adminDash{
+  height: 45px;
+  border: 1px solid black;
+  border: none;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #cccccc;
+}
+
+.adminDash{
+  background-color: #B7D4EE;
+  border: none;
+}
+
+#mainTopic {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: inline-block;
+}
+
+.subTopic {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.greybackground {
+  background-color: #eeeeee !important;
+  margin-bottom: 0px !important;
+}
+
+.topicText{
+  margin-bottom: 15px;
+  margin-top: 40px;
+  font-size: 40px;
+  background-color: white;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 1px solid lightgrey;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  color: #333333;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+@media (max-width: 768px) {
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 25px;
+}
+p {
+  font-size: 20px;
+}
+}
+
+
+/* ============================================================================= *
+*           TALLY DIV                                                           *
+* ============================================================================== */
+
+
+/* ============================================================================= *
+*           STICKY CTA                                                           *
+* ============================================================================== */
+
+.ctaIcon {
+  color: #6fa8dc;
+}
+
+#cta_container {
+  background:#333333;
+  bottom:0;
+  height:60px;
+  left:0;
+  position: fixed;
+  width:100%;
+}
+
+#stickyCTA {
+  /*line-height:60px;*/
+  margin: 0 auto;
+  /*width:940px;*/
+  text-align:left;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+
+/* ============================================================================= *
+*           IDEAS FILTER                                                         *
+* ============================================================================== */
+
+.filterIdeas {
+  text-align: left !important;
+}
+
+.filterIdeas, select, option {
+  margin-top: 30px !important;
+
+  height: 30px;
+  width: 300px !important;
+}
+
+@media (max-width: 768px) {
+  .filterIdeas, select, option {
+    margin-top: 10px !important;
+
+    height: 30px;
+    width: 99% !important;
+  }
+}
+
+/* ============================================================================= *
+*           MAIN NAVIGATION                                                      *
+* ============================================================================== */
+#mainNav {
+  background-color: #6fa8dc;
+  margin-bottom: 0px;
+  height: 130px;
+  width: 100%;
+}
+
+#loginContainer {
+  padding-right: 50px;
+  text-align: right;
+}
+
+#logoContainer {
+  text-align: left;
+  padding-left: 50px;
+  height: 130px;
+  line-height: 130px;
+  padding-top: 32px;
+}
+
+.dashNav {
+  background-color: #dddddd;
+  border-top: 3px solid #6FA8DC;
+  color: black;
+  padding-right: 20px;
+}
+
+.logo, a, a:hover, a:active, a:visited {
+  color: #333333;
+  text-decoration: none;
+  /*margin-top: 45px;*/
+
+}
+
+.btn-log {
+  width: 100px;
+  background-color: #333333;
+  color: white;
+  margin: 0px;
+  border-radius: 2px;
+  border: none;
+  height: 40px;
+  outline: none;
+  margin-top: 45px;
+}
+
+.btn-log:hover {
+  background-color: #666666;
+  color: white;
+}
+
+/* ============================================================================= *
+*           SUB NAVIGATION                                                       *
+* ============================================================================== */
+#subtopicNav {
+margin: 0px;
+background-color: #333333;
+}
+
+.btn-nav {
+  width: 100%;
+  background-color: #333333;
+  color: white;
+  margin: 0px;
+  border-radius: 0px;
+  border: none;
+  height: 65px;
+  outline: none;
+}
+
+.btn-nav:hover {
+  background-color: #666666;
+  color: white;
+}
+
+.col-xs-5ths, .col-sm-5ths, .col-md-5ths, .col-lg-5ths {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-xs-5ths {
+  width: 20%;
+  float: left;
+}
+
+.col-md-5s {
+  width: 10%;
+  float: left;
+}
+.col-md-5m {
+  width: 35%;
+  float: left;
+}
+
+@media (min-width: 768px)
+{
+    .navbar-header
+    {
+        float: none;
+    }
+
+    .navbar-toggle
+    {
+        display: block;
+    }
+
+    .navbar-collapse.collapse
+    {
+        display: none ;
+    }
+}
+
+/* ============================================================================= *
+*           FOOTER                                                               *
+* ============================================================================== */
+#footer{
+  background-color: #6fa8dc;
+  height: 60px;
+}
+
+/* ============================================================================= *
+*           IDEAS CARD                                                           *
+* ============================================================================== */
+.cardContainer {
+  padding-top: 50px;
+  background-color: #eeeeee;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+  padding-bottom: 50px;
+}
+
+.singleCardContainer{
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  background-color: white;
+  padding-top: 160px;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; !important;
+  overflow-x: hidden !important;
+  padding-bottom: 160px;
+  display: inline-block;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  width: 200px !important;
+  height: 400px !important;
+  /*margin: 20px;*/
+  /*width: 100%;*/
+}
+/* ============================================================================= *
+*           CALL TO ACTION                                                       *
+* ============================================================================== */
+
+.btn-100 {
+  width: 100%;
+  background-color: #6fa8dc;
+  color: white;
+  margin: 0px;
+  border-radius: 0px;
+  border: none;
+  height: 50px;
+  outline: none;
+}
+
+.btn-80 {
+  width: 80%;
+  background-color: #6fa8dc;
+  color: white;
+  margin: 0px;
+  border-radius: 0px;
+  border: none;
+  height: 50px;
+  outline: none;
+}
+
+.btn-80-blk {
+  width: 80%;
+  background-color: #333333;
+  color: white;
+  margin: 0px;
+  border-radius: 0px;
+  border: none;
+  height: 40px;
+  outline: none;
+}
+
+.cta-home {
+  text-align: center;
+  margin: 40px;
+  padding: 40px;
+  background-color: #333333;
+  color: white;
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+.callToAction, p  {
+  font-size: 14px;
+}
+}
+
+.callToAction, p {
+  font-size: 20px;
+}
+
+.ctaTitle {
+  background-color: #333333;
+  height: 80px;
+  text-align: center;
+  padding-top: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+}
+
+.ctaTitle > h2{
+  color: white !important;
+}
+
+.frmTitle {
+  background-color: #6fa8dc;
+  height: 80px;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.frmTitle, h2{
+  color: white !important;
+}
+
+.dark {
+  color: #333333 !important;
+}
+
+.light {
+  color: white !important;
+}
+
+.mobileCTA {
+text-align: center;
+margin-bottom: 30px;
+}
+
+.ctaForm {
+  padding-top: 15px;
+  padding-bottom: 90px;
+  background-color: #B7D4EE;
+}
+
+.ctaForm > select {
+  width: 80% !important;
+}
+
+.basicForm {
+  padding-top: 40px;
+  padding-bottom: 90px;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+
+.lightGrey {
+  background-color: #eeeeee;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+.selector100{
+  width: 80% !important;
+}
+
+.addressForm{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+.lightgreyTextArea {
+  background-color: #eeeeee !important;
+  height: 200px;
+}
+
+.btn-cta {
+  background-color: #333333;
+  color: white;
+  margin: 0px;
+  border-radius: 0px;
+  border: none;
+  height: 55px;
+  outline: none;
+  float: right;
+  margin-right: 10%;
+}
+
+.btn-cta:hover {
+  background-color: #666666;
+  color: white;
+}
+
+input, textarea, select {
+  border: none;
+  margin: 5px;
+  width: 80%;
+  border-radius: 2px !important;
+}
+
+select {
+  background-color: #333333;
+  color: white;
+}
+
+.options {
+    background-color: #333333;
+    color: white;
+
+}
+
+.cardContainer .options .col2 > li {
+  height: 50%;
+}
+.cardContainer .options .col2 > li:last-child {
+  top: auto;
+  bottom: 0;
+}
+
+
+@media (min-width: 768px) {
+  .col-sm-5ths {
+    width: 20%;
+    float: left;
+
+  }
+}
+@media (min-width: 992px) {
+  .col-md-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-5ths {
+    width: 20%;
+    float: left;
+  }
+}
+
+/* ============================================================================= *
+*           USERS TABLE                                                          *
+* ============================================================================== */
+
+table {
+  width: 90%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+tr {
+  height: 40px;
+}
+
+tr:nth-child(even){
+  background-color: #eeeeee;
+}
+
+th {
+  background-color: #666666;
+  color: white;
+  text-align: center;
+}
+
+.searchInput{
+  height: 40px;
+  border: 1px solid #eeeeee;
+  background-color: #F5F5F5	;
+}
+
+.btn-src {
+  height: 40px;
+  color: white;
+  background-color: #333333;
+  border: none;
+  width: 100px;
+}
+
+.btn-src:hover {
+  height: 40px;
+  color: white;
+  background-color: #6fa8dc;
+  border: none;
+  width: 100px;
+}
+
+/* ============================================================================= *
+*           DATA                                                                 *
+* ============================================================================== */
+
+.col-md-3 > select {
+  margin-top: 5px !important;
+  width: 80% !important;
+  overflow-y: auto !important;
+ overflow-x: hidden !important;
+}
+
+
+.btn-flt {
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  background-color: #6fa8dc;
+  border: none;
+  width: 70%;
+}
+
+.btn-flt:hover {
+  height: 40px;
+  color: white;
+  border-radius: 5px;
+  background-color: #333333;
+  border: none;
+  width: 70%;
+}
+
+.search-bar {
+  padding-bottom: 30px;
+}
+
+.navbar-form input, .form-inline input {
+	width:auto;
+}
+
+.navbar {
+    margin-bottom:0;
+}
+
+.subnav {
+  margin:0;
+  top: 0px;
+  z-index: 1020;
+  background-color: rgb(247,247,247);
+  border-bottom: 1px solid #E1E1E1;
+  padding: 8px 0px 0px 0px;
+}
+
+.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;
+    background-color: #6fa8dc !important;
+}
+
+.affix .btn-nav {
+    /*position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:10;*/
+    color: #333333;
+    font-weight: bold;
+    background-color: #6fa8dc !important;
+}
+
+
+.adminTopic {
+  padding: 20px 60px 60px 60px;
+}
+
+.adminTopic > input {
+  height: 35px;
+  width: 100%;
+}
+
+.adminTopic > textarea {
+  height: 250px;
+  width: 100%;
+}
+
+.btn-admin {
+  width: 100px;
+  background-color: #333333;
+  color: white;
+  margin: 0px;
+  border-radius: 2px;
+  border: none;
+  height: 40px;
+  outline: none;
+  float: right;
+  text-align: center !important;
+}
+
+.btn-log:hover {
+  background-color: #666666;
+  color: white;
+}
+
+.sub-nav:hover {
+  background-color: #666666 !important;
+  display: inline-block;
+}
+
+.sub-nav > li:hover{
+  background-color: #666666 !important;
+}
+
+.sub-nav:hover > li:hover{
+  background-color: #666666 !important;
+}
+
+.sub-nav:hover > li > a {
+  height: 85px;
+  style: none;
+  background-color: #666666 !important;
+}
+
+.sub-nav > li {
+  height: 85px;
+  style: none;
+  line-height: 20px;
+  list-style-type: none;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 35px;
+  /*font-style: bold;*/
+  font-size: 18px;
+}
+
+/*home view add idea div*/
+.haveIdeaHome {
+  text-align: center;
+}
+
+/*subtopic div element*/
+.subtopicDiv {
+  text-align: center;
+}
+
+/*idea main element*/
+.ideaMain {
+  text-align: center;
+}
+/*//CHRIS*/

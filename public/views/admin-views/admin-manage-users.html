@@ -1,0 +1,58 @@
+
+<!--
+/* ============================================================================= *
+*        ADMIN  NAVIGATION                                                       *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/adminNav.html'"></div>
+<!--
+/* ============================================================================= *
+*        MANAGE USERS                                                            *
+* ============================================================================= */
+-->
+<div style="background-color:#F8F8F8; padding-top: 90px; padding-bottom: 100px">
+  <div class="container" style="padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;d">
+    <!-- Heading -->
+    <h2 style="text-align:center; padding-top: 30px; padding-bottom: 30px;"> Manage Users </h2>
+    <!-- Filter/Search Bar -->
+    <div class = "search-bar" align="center">
+      <div class="col-md-6">
+        <input ng-model="amuc.userFilter.searchString" class="searchInput" placeholder"Search users"></input>
+      </div>
+      <div class="col-md-3">
+        <select ng-model="amuc.userFilter.filter" ng-options="item as item.filter for item in amuc.filterList.list">
+          <option value="" ng-show="false"> Sort By: </option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <button ng-click="amuc.searchUsers()" class="btn-src" style> Search </button>
+      </div>
+    </div>
+    <!-- Users Table -->
+    <table class="usersTable" align="center">
+      <tr>
+        <th> Name </th>
+        <th> Email </th>
+        <th> Ward </th>
+        <th> Ideas Flags </th>
+        <th> Comments Flags </th>
+        <th> Sub-Comments Flags </th>
+        <th> Activate/Deactivate </th>
+      </tr>
+      <tr ng-repeat="user in amuc.allUsers.list">
+        <td> {{user.name}} </td>
+        <td> {{user.email}} </td>
+        <td> {{user.ward}} </td>
+        <td> {{user.ideas_flags_count}} </td>
+        <td> {{user.comments_flags_count}} </td>
+        <td> {{user.subflags_count}} </td>
+        <td ng-show="user.active">
+          <button ng-click="amuc.deactivateUser(user.id)" class="btn btn-danger btn-xs"> Deactivate </button>
+        </td>
+        <td ng-hide="user.active">
+          <button ng-click="amuc.reactivateUser(user.id)" class="btn btn-primary btn-xs"> Reactivate </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

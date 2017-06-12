@@ -1,0 +1,31 @@
+
+<div id = "mainNav">
+    <!--
+    /* ============================================================================= *
+    *        PSP LOGO                                                              *
+    *  ============================================================================= */
+    -->
+    <div id="logoContainer" class="col-xs-6 col-md-6 col-lg-6">
+      <h2 class="logo"><a href="#!home"><i class="fa fa-users"></i> PSP</a></h2>
+    </div>
+    <!--
+    /* ============================================================================= *
+    *        LOG IN/OUT                                                              *
+    *  ============================================================================= */
+    -->
+    <div id="loginContainer" ng-controller="LoginController as lc" class="col-xs-6 col-md-6 col-lg-6">
+
+      <!--//SIGN IN BUTTON//-->
+      <!-- <img class="authImage" ng-hide="!lc.email" src="{{lc.photo}}">{{lc.email}} -->
+      <button ng-show="!lc.email" ng-click="lc.login()" type="submit" class="btn-log">
+        Login <i class="fa fa-sign-in"></i>
+      </button>
+      <!--//SIGN OUT BUTTON//-->
+      <button ng-click="lc.logout()" ng-show="lc.email" type="submit" class="btn-log">
+        Logout <i class="fa fa-sign-out"></i>
+      </button>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,157 @@
+<!--
+/* ============================================================================ *
+*        SUBTOPIC NAVIGATION                                                    *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/subtopicNav.html'"></div>
+<!--
+/* ============================================================================ *
+*         SUBTOPIC TITLE AND DESCRIPTION DESKTOP                                *
+* ============================================================================= */
+-->
+<div class = "greybackground">
+
+  <div class = "container">
+    <div class="row subTopic">
+
+
+      <div class="visible-md-block visible-lg-block visible-xl-block">
+        <!--//SUBTOPIC TITLE AND DESCRIPTION//-->
+        <div class="col-md-7 col-lg-7 topicText">
+          <h1> {{stc.individualSubtopic.list[0].title}} </h1>
+          <p> {{stc.individualSubtopic.list[0].description}} </p>
+        </div>
+        <!--//CALL TO ACTION ON MEDIUM AND LARGE SCREEN//-->
+        <div class="col-md-5 col-lg-5 callToAction">
+          <div class="ctaTitle">
+            <h2><i class="fa fa-lightbulb-o" aria-hidden="true"></i>  Have an Idea?</h2>
+          </div>
+          <div>
+            <form class="ctaForm" align="center" action="index.html" method="post">
+              <select ng-model="stc.idea.subtopicId">
+                <!-- <option>Choose a Topic</option> -->
+                <option ng-repeat="subtopic in stc.subTopic.list" value="{{subtopic.id}}"> {{subtopic.title}} </option>
+              </select>
+              <input ng-model="stc.idea.title" type="text" name="" value="" placeholder="Title">
+              <textarea ng-model="stc.idea.description" name="comment" placeholder="Description..."form="usrform"></textarea><br>
+              <button ng-click="stc.addNewIdea(stc.idea)" class = "btn-cta" type="button" name="button"> Add Your Idea! </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--
+      /* ============================================================================ *
+      *         SUBTOPIC TITLE AND DESCRIPTION MOBILE                                *
+      * ============================================================================= */
+    -->
+
+    <div class="visible-xs-block">
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10 topicText">
+        <h1> {{stc.individualSubtopic.list[0].title}} </h1>
+        <p> {{stc.individualSubtopic.list[0].description}} </p>
+      </div>
+      <div class="col-xs-1"></div>
+    </div>
+
+  </div>
+  <!-- </div> -->
+
+  <!--
+  /* ============================================================================= *
+  *        FILTER                                                                  *
+  * ============================================================================== */
+-->
+<div class=" container" style=" padding-bottom: 45px;">
+  <form class="filterIdeas" align="left" action="index.html" method="post">
+    <select name="Subtopics" class="filterIdeas">
+      <option  value="placeholder">Filter Ideas By:</option>
+      <option  value="mostRecent">Most Recent</option>
+      <option  value="mostLiked">Most Liked</option>
+      <option value="mostLoved">Most Loved</option>
+      <option value="mostComments">Most Comments</option>
+    </select>
+    <!-- <button ng-click="stc.buttonClick()" type="button" name="button"> Filter </button> -->
+  </form>
+</div>
+<!--
+/* ============================================================================= *
+*        IDEAS CARDS                                                             *
+* ============================================================================== */
+-->
+
+<div ng-repeat="subtopicIdeas in stc.subtopicIdeas.list" class="col-lg-6 col-md-6">
+  <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch="">
+    <md-card-title>
+      <md-card-title-text style="height: 55px;">
+        <span class="md-headline">{{subtopicIdeas.title}}</span>
+      </md-card-title-text>
+      <md-button ng-click="stc.moreComments(subtopicIdeas)" class="md-icon-button" aria-label="Comment">
+        <i class="fa fa-comment" style="color: #333333; font-size: 20px;"aria-hidden="true"></i>
+      </md-button>
+      <md-button ng-click="stc.flagIdeaClick(subtopicIdeas)" class="md-icon-button" aria-label="Flag">
+        <i class="fa fa-flag" style="color: #333333; font-size: 20px;"aria-hidden="true"></i>
+      </md-button>
+    </md-card-title>
+    <md-card-content layout="row" layout-align="space-between" style="height:200px;">
+      <div class="md-media-xl card-media"></div>
+      <md-content style="padding: 20px; height:200px;">
+        <span>{{subtopicIdeas.description}}</span>
+      </md-content>
+    </md-card-content>
+    <md-card-title>
+    <div class="row">
+      <div class="col-md-3">
+        <img class="authImage" ng-src="{{subtopicIdeas.photo}}"></img>
+      </div>
+      <div class="col-md-9">
+        <span class="md-subhead">{{subtopicIdeas.name}}</span>
+        <span class="md-subhead">Ward {{subtopicIdeas.ward}}</span>
+      </div>
+    </div>
+  </md-card-title>
+    <ul style="margin-bottom: 0px !important;">
+        <div ng-click="stc.addIdeaLike(subtopicIdeas.idea_id, subtopicIdeas.subtopics_id)" class="col-md-6 col-xs-6 actionBtn" style="border-right: 1px solid #eeeeee;">
+          <li class="like">
+            <span>{{subtopicIdeas.ideas_likes_count}}</span>
+            <span ng-if="subtopicIdeas.ideas_likes_count == 1">LIKE</span>
+            <span ng-if="subtopicIdeas.ideas_likes_count == 0 || subtopicIdeas.ideas_likes_count >= 2">LIKES</span>
+          </li>
+        </div>
+        <div ng-click="stc.addIdeaLove(subtopicIdeas.idea_id, subtopicIdeas.subtopics_id)" class="col-md-6 col-xs-6 actionBtn">
+          <li tooltips tooltip-template="Are you sure you love this? If you are, we'll keep you informed!" tooltip-size="large"  class="love" style="width: 100%;">
+            <span>{{subtopicIdeas.ideas_loves_count}}</span>
+            <span ng-if="subtopicIdeas.ideas_loves_count == 1">LOVE</span>
+            <span ng-if="subtopicIdeas.ideas_loves_count == 0 || subtopicIdeas.ideas_loves_count >= 2">LOVES</span>
+          </li>
+        </div>
+      </ul>
+  </md-card>
+</div>
+</div>
+
+<!--
+/* ============================================================================= *
+*        CALL TO ACTION                                                          *
+* ============================================================================== */
+-->
+<!--//CALL TO ACTION MEDIUM AND LARGE SCREEN//-->
+<div class="cta-home row visible-md-block visible-lg-block visible-xl-block">
+  <div class="col-md-6 col-xs-12">
+    <h3 class="light"> HAVE AN IDEA? </h3>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <button ng-click="stc.createIdea()" type="button" class="btn-100" name="button"> START A CONVERSATION </button>
+  </div>
+</div>
+<!--//CALL TO ACTION MOBILE/SMALL SCREEN//-->
+<div id="cta_container" class="visible-xs-block">
+  <div id="stickyCTA" ng-click="stc.createIdea()">
+    <h4 class="light">
+      <i class="ctaIcon fa-fw fa fa-plus-circle fa-2x" style=" vertical-align: middle;"aria-hidden="true"></i>
+      Create an Idea
+    </h4>
+  </div>
+</div>
+
+</div>

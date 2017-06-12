@@ -1,0 +1,151 @@
+<!--
+/* ============================================================================= *
+*        ABOVE TALLY DIV AND NAVIGATION                                          *
+* ============================================================================= */
+-->
+<div class = "container">
+  <div id="mainTopic" class="row">
+    <!--//MAIN TOPIC TITLE AND DESCRIPTION//-->
+    <div class="col-md-7 topicText">
+      <h1> {{hc.mainTopic.list.title}} </h1>
+      <p> {{hc.mainTopic.list.description}} </p>
+    </div>
+    <!--//TOP-SIDE CALL TO ACTION ON MOBILE/SMALL SCREEN//-->
+    <div class="mobileCTA visible-xs-block">
+      <h2 class="dark"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Share your thoughts </h2>
+      <button ng-click="hc.createIdea()" class = "btn-80" type="button" name="button"> START A CONVERSATION! </button>
+    </div>
+    <!--//TOP-SIDE CALL TO ACTION ON MEDIUM AND LARGE SCREEN//-->
+    <div class="visible-md-block visible-lg-block visible-xl-block  col-md-5 callToAction" style="padding-top: 35px;">
+      <div class="ctaTitle">
+        <h2><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Share your thoughts </h2>
+      </div>
+      <div>
+        <form class="ctaForm" align="center" action="index.html" method="post">
+          <select ng-model="hc.idea.subtopicId">
+            <option value="" ng-show="false"> Select: </option>
+            <option ng-repeat="subtopic in hc.subTopic.list" value="{{subtopic.id}}"> {{subtopic.title}} </option>
+          </select>
+          <input ng-model="hc.idea.title" type="text" name="" value="" placeholder="Title">
+          <textarea ng-model="hc.idea.description" name="comment" placeholder="Description..."form="usrform"></textarea><br>
+          <button ng-click="hc.addNewIdea(hc.idea)" class = "btn-cta" type="button" name="button"> Start a conversation! </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+/* ============================================================================= *
+*                   TALLY DIV                                                    *
+* ============================================================================= */
+-->
+<div id="tallyDiv">
+  <div class="row" style="text-align: center;">
+    <div class="col-md-3 col-xs-3" style="border-right: 2px solid #B7D4EE;  border-top: 2px solid #B7D4EE; border-bottom: 2px solid #6FA8DC; padding-top: 20px; padding-bottom: 20px;">
+      <p> <b>Users</b> </p>
+      <span style="font-size: 24px; color: #B7D4EE;"> {{hc.userTally.count.count}} </span>
+    </div>
+    <div class="col-md-3 col-xs-3" style="border-right: 2px solid #B7D4EE;  border-top: 2px solid #B7D4EE; border-bottom: 2px solid #6FA8DC; padding-top: 20px; padding-bottom: 20px;">
+      <p><b> Ideas </b></p>
+      <span style="font-size: 24px; color: #B7D4EE;"> {{hc.ideasTally.count.count}} </span>
+    </div>
+    <div class="col-md-3 col-xs-3" style="border-right: 2px solid #B7D4EE; border-top: 2px solid #B7D4EE; border-bottom: 2px solid #6FA8DC;  padding-top: 20px; padding-bottom: 20px;">
+      <p><b>Comments</b></p>
+      <span style="font-size: 24px; color: #B7D4EE;"> {{hc.commentsTally.count.sumcount}} </span>
+    </div>
+    <div class="col-md-3 col-xs-3" style="border-right: 2px solid #B7D4EE; border-top: 2px solid #B7D4EE; border-bottom: 2px solid #6FA8DC; padding-top: 20px; padding-bottom: 20px;">
+      <p><b>Likes</b></p>
+      <span style="font-size: 24px; color: #B7D4EE;"> {{hc.likesTally.count.sumcount}} </span>
+    </div>
+  </div>
+</div>
+
+<!--
+/* ============================================================================= *
+*        SUBTOPIC NAVIGATION                                                    *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/subtopicNav.html'"></div>
+
+<!--
+/* ============================================================================= *
+*        BELOW SUBTOPIC NAVIGATION                                               *
+* ============================================================================== */
+-->
+<div class = 'cardContainer greyBackground' style="margin:0px;">
+  <!--//IDEACARDS SECTION//-->
+  <div class = 'container'>
+    <h4 class="text-center">DISCOVER SOME OF THE HOTTEST IDEAS</h4>
+
+    <div ng-repeat="idea in hc.mostLikedIdea.list" class="col-lg-6 col-md-6">
+      <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch="">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">{{idea.title}}</span>
+          </md-card-title-text>
+          <md-button ng-click="hc.moreComments(idea)" class="md-icon-button" aria-label="Comment">
+            <i class="fa fa-comment" style="color: #333333; font-size: 20px;"aria-hidden="true"></i>
+          </md-button>
+          <md-button ng-click="hc.flagIdeaClick(idea)" class="md-icon-button" aria-label="Flag">
+            <i class="fa fa-flag" style="color: #333333; font-size: 20px;"aria-hidden="true"></i>
+          </md-button>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="md-media-xl card-media"></div>
+          <md-content style="padding: 20px;height:300px;">
+            <span>{{idea.description}}</span>
+          </md-content>
+        </md-card-content>
+        <md-card-title>
+        <div class="row">
+          <div class="col-md-3">
+            <img class="authImage" ng-src="{{idea.photo}}"></img>
+          </div>
+          <div class="col-md-9">
+            <span class="md-subhead">{{idea.name}}</span>
+            <span class="md-subhead">Ward {{idea.ward}}</span>
+          </div>
+        </div>
+      </md-card-title>
+        <ul style="margin-bottom: 0px !important;">
+          <div ng-click="hc.addIdeaLike(idea.idea_id, idea.subtopics_id)" class="col-md-6 col-xs-6 actionBtn" style="border-right: 1px solid #eeeeee;">
+            <li class="like">
+              <span>{{idea.ideas_likes_count}}</span>
+              <span ng-if="idea.ideas_likes_count == 1">LIKE</span>
+              <span ng-if="idea.ideas_likes_count == 0 || idea.ideas_likes_count >= 2">LIKES</span>
+            </li>
+          </div>
+          <div ng-click="hc.addIdeaLove(idea.idea_id, idea.subtopics_id)" class="col-md-6 col-xs-6 actionBtn">
+            <li tooltips tooltip-template="Are you sure you love this? If you are, we'll keep you informed!" tooltip-size="large" class="love">
+              <span>{{idea.ideas_loves_count}}</span>
+              <span ng-if="idea.ideas_loves_count == 1">LOVE</span>
+              <span ng-if="idea.ideas_loves_count == 0 || idea.ideas_loves_count >= 2">LOVES</span>
+            </li>
+          </div>
+        </ul>
+      </md-card>
+    </div>
+  </div>
+
+<!--//CALL TO ACTION MOBILE/SMALL SCREEN//-->
+<div class="mobileCTA visible-xs-block">
+  <h2 class="dark"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Have an Idea? </h2>
+
+  <button onclick="location.href='#!idea'" class = "btn-80" type="button" name="button"> START A CONVERSATION! </button>
+
+  <!-- <button ng-click="hc.createIdea()" class = "btn-80" type="button" name="button">START A CONVERSATION!</button> -->
+
+</div>
+
+<!--//CALL TO ACTION MEDIUM AND LARGE SCREEN//-->
+<div class="cta-home row visible-md-block visible-lg-block visible-xl-block">
+  <div class="col-md-6 col-xs-12">
+    <h3 class="light"> HAVE AN IDEA? </h3>
+  </div>
+  <div class="col-md-6 col-xs-12">
+
+    <button ng-click="hc.createIdea()" type="button" class="btn-100" name="button"> START A CONVERSATION! </button>
+
+  </div>
+</div>
+</div>

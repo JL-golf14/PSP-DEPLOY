@@ -1,0 +1,46 @@
+
+<!-- <h1>login view</h1>
+  <header>
+    <img class="authImage" ng-hide="lc.email === NULL" src="{{lc.photo}}"><span> {{lc.email}} </span>
+      <button ng-click="lc.login()" ng-show="lc.email === NULL" type="button" name="button"> Login </button>
+      <button ng-click="lc.logout()" ng-hide="lc.email === NULL" type="button" name="button"> Logout </button>
+  </header>
+
+  <div ng-hide="lc.email === NULL">
+    <h3> Almost Done! </h3>
+      <div> Please enter your address </div>
+        <label for="street"> Street </label>
+          <input ng-model="lc.user.street" type="text" name="street">
+        <label for="city"> City </label>
+          <input ng-model="lc.user.city" type="text" name="city">
+        <label for="state"> State </label>
+          <input ng-model="lc.user.state" type="text" name="state">
+        <label for="zipCode"> Zip Code</label>
+          <input ng-model="lc.user.zipCode" type="text" name="zipCode">
+            <button ng-click="lc.addNewUser(lc.user)"type="button" name="button"> ADD ME! </button>
+  </div> -->
+
+
+
+<div ng-include="'/views/templates/subtopicNav.html'"></div>
+
+<div class = "greybackground">
+  <div class = "container">
+    <div class="row addressForm">
+      <div class="frmTitle">
+        <h2> Almost Done! </h2>
+      </div>
+      <div>
+        <form class="basicForm" align="center" action="index.html" method="post">
+          <p> Please enter your address! </p>
+          <p> We use your address to identify the ward in Minneapolis in which you live. This provides other users context for the ideas you share on the website, and shows city officials what problems are most important to their constituents. </p>
+          <input ng-model="lc.user.street" class="lightGrey" type="text" name="" value="" placeholder="Street Address">
+          <input ng-model="lc.user.city" class="lightGrey" type="text" name="" value="" placeholder="City">
+          <input ng-model="lc.user.state" class="lightGrey" type="text" name="" value="" placeholder="State">
+          <input ng-model="lc.user.zipCode" class="lightGrey" type="text" name="" value="" placeholder="Zip Code">
+          <button ng-click="lc.addNewUser(lc.user)" class = "btn-80-blk" type="button" name="button">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

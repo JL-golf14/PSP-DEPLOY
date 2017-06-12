@@ -1,0 +1,142 @@
+<!--
+/* ============================================================================= *
+*                                                                                *
+*        CURRRENT TRI                                                            *
+*                                                                                *
+* ============================================================================= */
+-->
+
+<!--
+/* ============================================================================= *
+*        ADMIN  NAVIGATION                                                       *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/adminNav.html'"></div>
+<!--
+/* ============================================================================= *
+*        CHANGE VIEWS                                                            *
+* ============================================================================= */
+-->
+<div ng-show="atc.update" style="background-color:#F8F8F8; padding-top: 30px; padding-bottom: 15px">
+  <div class="container" style="padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;d">
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-md-3 col-lg-3"><button class="btn-cta" style="background-color: #6FA8DC; width: 180px;" type="button" name="button" ng-click="atc.updateView()"> Update Current Trimester </button></div>
+    <div class="col-md-3 col-lg-3"><button class="btn-cta" style="width: 180px;" type="button" name="button"  ng-click="atc.newTriView()"> Set Next Trimester </button></div>
+    <div class="col-md-3 col-lg-3"></div>
+
+    <!--
+    /* ============================================================================= *
+    *        MAIN TOPIC                                                              *
+    * ============================================================================= */
+  -->
+<div class = "row" style="padding-top: 35px; padding-bottom: 35px;">
+  <h2 style="text-align:center; padding-top: 30px; padding-bottom: 30px;">Update Current Topics/Sub-Topics</h2>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="ctaTitle">
+      <h2 style="padding-left: 30px; text-align: left; background-color: #333333;">Main Topic</h2>
+    </div>
+    <div>
+      <form align="left" class="adminTopic" action="index.html" method="post" style="background-color: #B7D4EE;">
+        <input ng-model="atc.mainTopic.list.title" placeholder="Topic Title" type="text" name="" value=""></input>
+        <textarea ng-model="atc.mainTopic.list.description" placeholder="Description" name="name" rows="8" cols="80"></textarea><br>
+        <button ng-click="atc.updateTopic(atc.mainTopic.list.title, atc.mainTopic.list.description, atc.mainTopic.list.id)" class="btn-admin" style="text-align: right;" type="button" name="button">Save</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+<!--
+/* ============================================================================= *
+*       SUB-TOPICS                                                               *
+* ============================================================================= */
+-->
+  <div ng-repeat="subTopic in atc.subTopic.list" class="col-md-6" style="padding-bottom: 35px;">
+    <div class="ctaTitle">
+      <h2 style="padding-left: 30px; text-align: left; background-color: #333333;">Sub-Topic {{$index +1}}</h2>
+    </div>
+    <div>
+      <form align="left" class="adminTopic" action="index.html" method="post" style="background-color: #B7D4EE;">
+        <input ng-model="subTopic.title" placeholder="Topic Title" type="text" name="" value=""></input>
+        <textarea ng-model="subTopic.description" placeholder="Description" name="name" rows="8" cols="80"></textarea><br>
+        <button ng-click="atc.updateSubTopic(subTopic.title, subTopic.description, subTopic.id)" class="btn-admin" style="text-align: right;" type="button" name="button">Save</button>
+      </form>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
+<!--
+/* ============================================================================= *
+*                                                                                *
+*        UPCOMING TRI                                                            *
+*                                                                                *
+* ============================================================================= */
+-->
+
+<!--
+/* ============================================================================= *
+*        CHANGE VIEWS                                                            *
+* ============================================================================= */
+-->
+<div ng-show="!atc.update" style="background-color:#F8F8F8; padding-top: 30px; padding-bottom: 15px">
+  <div class="container" style="padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;d">
+
+    <div class="col-md-3 col-lg-3"></div>
+    <div class="col-md-3 col-lg-3"><button class="btn-cta" style="width: 180px;" type="button" name="button" ng-click="atc.updateView()">Update Current Trimester</button></div>
+    <div class="col-md-3 col-lg-3"><button class="btn-cta" style="background-color: #6FA8DC; width: 180px;" type="button" name="button" ng-click="atc.newTriView()">Set Next Trimester</button></div>
+    <div class="col-md-3 col-lg-3"></div>
+
+    <!--
+    /* ============================================================================= *
+    *        MAIN TOPIC                                                              *
+    * ============================================================================= */
+  -->
+<div class = "row" style="padding-top: 35px; padding-bottom: 35px;">
+  <h2 style="text-align:center; padding-top: 30px; padding-bottom: 30px;">Next Trimester Topics/Sub-Topics</h2>
+
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <div class="ctaTitle">
+      <h2 style="padding-left: 30px; text-align: left; background-color: #333333;">Main Topic</h2>
+    </div>
+    <div>
+      <form align="left" class="adminTopic" action="index.html" method="post" style="background-color: #B7D4EE;">
+        <input ng-model="atc.upcomingMainTopic.list.title" placeholder="Topic Title" type="text" name="" value=""></input>
+        <textarea ng-model="atc.upcomingMainTopic.list.description" placeholder="Description" name="name" rows="8" cols="80"></textarea><br>
+        <button ng-show="!atc.noUpcomingTopic.list" ng-click="atc.updateUpcomingTopic(atc.upcomingMainTopic.list.title, atc.upcomingMainTopic.list.description, atc.upcomingMainTopic.list.id)" class="btn-admin" style="text-align: right;" type="button" name="button">Save</button>
+        <button ng-show="atc.noUpcomingTopic.list" ng-click="atc.addUpcomingTopic(atc.upcomingMainTopic.list.title, atc.upcomingMainTopic.list.description)" class="btn-admin" style="text-align: right;" type="button" name="button">Add</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+
+<!--
+/* ============================================================================= *
+*       SUB-TOPICS                                                               *
+* ============================================================================= */
+-->
+  <div ng-repeat="subTopic in atc.upcomingSubTopic.list" class="col-md-6" style="padding-bottom: 35px;">
+    <div class="ctaTitle">
+      <h2 style="padding-left: 30px; text-align: left; background-color: #333333;">Sub-Topic {{$index +1}}</h2>
+    </div>
+    <div>
+      <form align="left" class="adminTopic" action="index.html" method="post" style="background-color: #B7D4EE;">
+        <input ng-model="subTopic.title" placeholder="Topic Title" type="text" name="" value=""></input>
+        <textarea ng-model="subTopic.description" placeholder="Description" name="name" rows="8" cols="80"></textarea><br>
+        <button ng-show="!subTopic.noSubTopic" ng-click="atc.updateUpcomingSubTopic(subTopic.title, subTopic.description, subTopic.id)" class="btn-admin" style="text-align: right;" type="button" name="button">Save</button>
+        <button ng-show="subTopic.noSubTopic" ng-click="atc.addUpcomingSubTopic(subTopic.title, subTopic.description)" class="btn-admin" style="text-align: right;" type="button" name="button">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-md-6" style="padding-top: 200px; padding-left: 120px;">
+    <button type="button" class="btn btn-danger btn-lg" ng-click="atc.setNewTrimester()" name="button">SET NEW TRIMESTER</button>
+  </div>
+
+
+</div>
+</div>

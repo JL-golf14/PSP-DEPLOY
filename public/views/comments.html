@@ -1,0 +1,275 @@
+
+<!--
+/* ============================================================================ *
+*        SUBTOPIC NAVIGATION                                                    *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/subtopicNav.html'"></div>
+
+<!--
+/* ============================================================================ *
+*                                                                               *
+*                           DESKTOP VIEW                                        *
+*                                                                               *
+* ============================================================================= */
+-->
+<!--
+/* ============================================================================ *
+*         IDEA AREA                                                             *
+* ============================================================================= */
+-->
+
+<div class = "greybackground ">
+  <div class="row subTopic hidden-xs hidden-sm">
+    <div ng-repeat="idea in cc.getIdeaIdObject.list" class="ideaArea">
+      <!--//SUBTOPIC TITLE AND DESCRIPTION//-->
+      <div class="col-md-1 col-lg-1"></div>
+      <div class="col-md-10 col-lg-10 topicText" style="padding-bottom: 0px !important;">
+        <div class="card_content" style="padding-bottom: 0px;">
+          <h2>{{idea.title}} </h2>
+          <p>{{idea.description}} </p>
+        </div>
+        <div class="author_content">
+          <div class ="author_img col-xl-3 col-md-3">
+            <p> <img class="authImage" ng-src="{{idea.photo}}"></p>
+          </div>
+          <div class="author_info cole-xl 9 col-md-9">
+            <h4>Author: {{idea.name}} </h4>
+            <h5> Ward: {{idea.ward}} </h5>
+          </div>
+        </div>
+        <div class="love_like row">
+          <ul>
+            <div ng-click="cc.addIdeaLike(idea.idea_id, idea.subtopics_id)" class="col-md-4 col-xs-4 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+              <li class="like">
+                <span>{{idea.ideas_likes_count}}</span>
+                <span ng-if="idea.ideas_likes_count == 1">LIKE</span>
+                <span ng-if="idea.ideas_likes_count == 0 || idea.ideas_likes_count >= 2">LIKES</span>
+              </li>
+            </div>
+            <div  ng-click="cc.addIdeaLove(idea.idea_id, idea.subtopics_id)" class="col-md-4 col-lg-4 col-xl-4 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+              <li class="love">
+                <span>{{idea.ideas_loves_count}}</span>
+                <span ng-if="idea.ideas_loves_count == 1">LOVE</span>
+                <span ng-if="idea.ideas_loves_count == 0 || idea.ideas_loves_count >= 2">LOVES</span>
+              </li>
+            </div>
+            <div ng-click="cc.flagIdeaClick(idea)" class="col-md-4 col-xs-4 actionBtn" style="background-color: #6fa8dc;">
+              <li class="flag">
+                <span> FLAG </span>
+              </li>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1"></div>
+    </div>
+    <!--
+    /* ============================================================================ *
+    *         COMMENT INPUT BOX                                                     *
+    * ============================================================================= */
+  -->
+  <div class="commentArea">
+    <div class="col-md-2 col-lg-2"></div>
+    <div class="col-md-10 col-lg-10">
+      <textarea ng-model="cc.comment.description" style="border: 1px solid lightgrey; display: block; margin-left: auto; margin-right: auto;" placeholder="Comment..." name="name" rows="8" cols="80"></textarea>
+            <button ng-click="cc.addComment(cc.comment)" type="button" class="btn-log" style="float: right; margin-right: 12%; margin-top: 5px !important;"> Submit Comment </button>
+    </div>
+  </div>
+  <!--
+  /* ============================================================================ *
+  *         COMMENTS AREA                                                          *
+  * ============================================================================= */
+-->
+<div  class="commentDiv" ng-repeat="comments in cc.commentsObject.list">
+  <!-- <div class="col-md-1 col-lg-1"></div> -->
+  <div  class="col-md-9 col-lg-9 topicText" style="padding-bottom: 0px !important; margin-left: 15% !important;">
+    <div class="card_content"  style="padding-bottom: 0px; !important">
+      <p> {{comments.description}} </p>
+    </div>
+    <div class="author_content">
+      <div class ="author_img col-xl-3 col-md-3">
+        <p> <img class="authImage" ng-src="{{comments.photo}}"></p>
+      </div>
+      <div class="author_info cole-xl 9 col-md-9">
+        <h4> {{comments.name}} </h4>
+        <h5> {{comments.ward}} </h5>
+      </div>
+    </div>
+    <div class="love_like row">
+      <ul>
+        <div ng-click="cc.addCommentLike(comments.comments_id, comments.comments_idea_id)" class="col-md-6 col-lg-6 cold-xl-6 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+          <li class="like">
+            <span>{{comments.comments_likes_count}}</span>
+            <span ng-if="comments.comments_likes_count == 1">LIKE</span>
+            <span ng-if="comments.comments_likes_count == 0 || comments.comments_likes_count >= 2">LIKES</span>
+          </li>
+        </div>
+        <div ng-click="cc.flagCommentClick(comments)" class="col-md-6 col-lg-6 cold-xl-6 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+          <li class="love">
+            <span> FLAG </span>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-1 col-lg-1"></div>
+</div>
+</div>
+
+<!--
+/* ============================================================================ *
+*         SUB-COMMENT INPUT BOX                                                     *
+* ============================================================================= */
+-->
+<!-- <div class="commentArea animate-show-hide" ng-show="cc.showComment">
+<div class="col-md-2 col-lg-2">
+</div>
+<div class="col-md-10 col-lg-10">
+<button ng-click="cc.addNewSubComment(cc.subComment)" type="button"> Submit Sub-Comment </button>
+<textarea ng-model="cc.subComment.description" style="border: 1px solid lightgrey; display: block; margin-left: auto; margin-right: auto;" placeholder="Sub-comment..." name="name" rows="8" cols="80"></textarea>
+</div>
+</div> -->
+
+<!--
+/* ============================================================================ *
+*         SUB COMMENT BOX                                                       *
+* ============================================================================= */
+-->
+<!-- <div ng-repeat="subcomments in cc.allSubcommentsObject.list" class="commentDiv">
+<div class="col-md-2 col-lg-2"></div>
+<div class="col-md-9 col-lg-9 topicText" style="padding-bottom: 0px !important;">
+<div class="card_content" style="padding-bottom: 0px; !important">
+<p> {{subcomments.description}} </p>
+</div>
+<div class="author_content">
+<div class ="author_img col-xl-3 col-md-3">
+<p> {{subcomments.photo}} </p>
+</div>
+<div class="author_info cole-xl 9 col-md-9">
+<h4> {{subcomments.name}} </h4>
+<h5> {{subcomments.ward}} </h5>
+</div>
+</div>
+<div class="love_like row">
+<ul>
+<div class="col-md-6 col-lg-6 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+<li class="like">
+<span> LIKE </span>
+</li>
+</div>
+<div class="col-md-6 col-lg-6 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+<li class="love">
+<span> FLAG </span>
+</li>
+</div>
+</ul>
+</div>
+</div>
+</div> -->
+
+
+
+<!--
+/* ============================================================================ *
+*                                                                               *
+*                           MOBILE VIEW                                        *
+*                                                                               *
+* ============================================================================= */
+-->
+
+<!--
+/* ============================================================================ *
+*         IDEA AREA                                                             *
+* ============================================================================= */
+-->
+
+<div class = "greybackground hidden-md hidden-lg hidden-xl">
+  <div class="row subTopic">
+    <div ng-repeat="idea in cc.getIdeaIdObject.list" class="ideaArea">
+      <!--//SUBTOPIC TITLE AND DESCRIPTION//-->
+      <div class="col-md-1 col-lg-1"></div>
+      <div class="col-md-10 col-lg-10 topicText" style="padding-bottom: 0px !important;">
+        <div class="author_content">
+          <div class ="author_img col-xl-3 col-md-3 col-sm-3 col-xs-3">
+            <p> <img class="authImage" ng-src="{{idea.photo}}"></p>
+          </div>
+          <div class="author_info col-xl-9 col-md-9 col-sm-9 col-xs-9">
+            <h4>Author: {{idea.name}} </h4>
+            <h5> Ward: {{idea.ward}} </h5>
+          </div>
+        </div>
+        <div class="card_content" style="padding-bottom: 0px;">
+          <h2>{{idea.title}} </h2>
+          <p>{{idea.description}} </p>
+        </div>
+        <div class="love_like row">
+          <ul>
+            <div ng-click="cc.addIdeaLike(idea.idea_id, idea.subtopics_id)" class="col-md-4 col-xs-4 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+              <li class="like">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+              </li>
+            </div>
+            <div  ng-click="cc.addIdeaLove(idea.idea_id, idea.subtopics_id)" class="col-md-4 col-xs-4 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+              <li class="love">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </li>
+            </div>
+            <div ng-click="cc.flagIdeaClick(idea)" class="col-md-4 col-xs-4 actionBtn" style="background-color: #6fa8dc;">
+              <i class="fa fa-flag" aria-hidden="true"></i>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-1 col-lg-1"></div>
+    </div>
+    <!--
+    /* ============================================================================ *
+    *         COMMENT INPUT BOX                                                     *
+    * ============================================================================= */
+  -->
+  <div class="commentArea">
+    <div class="col-md-2 col-lg-2"></div>
+    <div class="col-md-10 col-lg-10">
+      <textarea ng-model="cc.comment.description" style="border: 1px solid lightgrey; display: block; margin-left: auto; margin-right: auto;" placeholder="Comment..." name="name" rows="8" cols="80"></textarea>
+      <button ng-click="cc.addComment(cc.comment)" type="button" class="btn-log" style="float: right; overflow:auto;"> Submit Comment </button>
+    </div>
+  </div>
+  <!--
+  /* ============================================================================ *
+  *         COMMENTS AREA                                                          *
+  * ============================================================================= */
+-->
+<div  class="commentDiv" ng-repeat="comments in cc.commentsObject.list">
+  <div class="col-md-1 col-lg-1"></div>
+  <div  class="col-md-10 col-lg-10 topicText" style="padding-bottom: 0px !important;">
+    <div class="card_content"  style="padding-bottom: 0px; !important">
+      <p> {{comments.description}} </p>
+    </div>
+    <div class="author_content">
+      <div class ="author_img col-xl-3 col-md-3">
+        <p> <img class="authImage" ng-src="{{comments.photo}}"></p>
+      </div>
+      <div class="author_info cole-xl 9 col-md-9">
+        <h4> {{comments.name}} </h4>
+        <h5> {{comments.ward}} </h5>
+      </div>
+    </div>
+    <div class="love_like row">
+      <ul>
+        <div ng-click="cc.addCommentLike(comments.comments_id, comments.comments_idea_id)" class="col-md-6 col-lg-6 col-xs-6 col-sm-6 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+          <li class="like">
+            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+          </li>
+        </div>
+        <div ng-click="cc.flagCommentClick(comments)" class="col-md-6 col-lg-6 col-xs-6 col-sm-6 actionBtn" style="background-color: #6fa8dc; border-right: 1px solid #eeeeee;">
+          <li class="flag">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-1 col-lg-1"></div>
+</div>
+</div>

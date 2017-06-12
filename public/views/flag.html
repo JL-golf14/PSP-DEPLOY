@@ -1,0 +1,30 @@
+<!--
+/* ============================================================================ *
+*        SUBTOPIC NAVIGATION                                                    *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/subtopicNav.html'"></div>
+<!--
+/* ============================================================================ *
+*         ADD ADDRESS FORM                                                      *
+* ============================================================================= */
+-->
+<div class = "greybackground">
+  <div class = "container">
+    <div class="row addressForm">
+      <div class="frmTitle">
+        <h2><i class="fa fa-flag" aria-hidden="true"></i> Flag This Post </h2>
+      </div>
+      <div>
+
+        <form class="basicForm" align="center">
+          <p>Why are you flagging this item?</p>
+          <textarea class="lightgreyTextArea" ng-model="fc.flagObject.description" name="comment" placeholder="Description..."form="usrform"></textarea><br>
+          <button class = "btn-80-blk" name="button" ng-click="fc.flagClick(fc.flagObject)">Submit</button>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,138 @@
+
+<!--
+/* ============================================================================= *
+*        ADMIN  NAVIGATION                                                       *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/adminNav.html'"></div>
+<!--
+/* ============================================================================= *
+*        MANAGE FLAGGED ITEMS                                                    *
+* ============================================================================= */
+-->
+<!-- <div style="background-color:#F8F8F8; padding-top: 30px; padding-bottom: 430px;">
+  <div class="container" style="  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  "style="padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;">
+  <div class="admin-border">
+    <h2 style="text-align:center;">Manage Flagged Items</h2>
+  </div>
+  <div ng-hide="afc.resolveFlag" style="margin-left: 65px !important; padding: 30px;"class="singleCard cardCenter col-md-5">
+    <! <h4>Flagged Item:</h4><span> Bathroom doorways are too narrow to get through. Hallways don’t allow enough room to turn around. Light switches are too high and electrical outlets too low to reach easily. Cabinets beneath a kitchen sink prevent someone from rolling up close and doing the dishes.
+By the way, you spelled accommodations incorrectly!</span> -->
+    <!-- <br>
+    <br>
+    <div class="col-md-4"><b>Flagged User:</b></div>
+    <div class="col-md-8">Chris Stanston</div>
+    <br>
+    <br>
+    <h5><span style="color: red;">Reason for flagging:</span> I don't think it was necessary for this user to point out my spelling mistakes.</h5>
+    <td class="col-xl-4 col-md-4" ng-show="flag.active">
+      <button ng-click="afc.resolveFlags()" class="btn btn-danger btn-xs">DELETE ITEM </button>
+    </td>
+    <! <td class="col-xl-4 col-md-4" ng-hide="flag.active">
+      <button ng-click="afc.reactivateUser(flags)" class="btn btn-primary btn-xs">SAVE EDIT</button>
+    </td> -->
+    <!-- <td class="col-xl-4 col-md-4" ng-hide="flag.active">
+    <button ng-click="afc.resolveFlags()" class="btn btn-primary btn-xs">RESOLVE FLAG</button>
+  </td>
+  </div>
+</div>  -->
+<!-- -->
+<!-- /* ============================================================================= *
+*        MANAGE FLAGGED IDEAS                                                    *
+* ============================================================================= */ -->
+
+<div style="background-color:#F8F8F8; padding-top: 30px; padding-bottom: 30px">
+  <div class="container" style="  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  "style="padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;">
+  <div class="admin-border">
+    <h2 style="text-align:center;">Manage Flagged Ideas</h2>
+  </div>
+
+</div>
+  <div class = 'container'>
+    <!-- //IDEACARDS SECTION// -->
+    <div class="row container">
+      <!-- START NG REPEAT BELOW HERE -->
+      <div ng-repeat="flags in afc.ideaToFlagObject.list" style="margin-left: 65px !important;"class="singleCard cardCenter col-md-5">
+        <div class="card_content">
+          <h2>Title:<textarea ng-model="flags.title"> {{flags.title}} </textarea></h2>
+          <p> Description: <textarea ng-model="flags.description">{{flags.description}}</textarea> </p>
+          <div class="author_content">
+            <div class ="author_img col-xl-3 col-md-3">
+              <!-- <p> <img ng-src="{{flags.photo}}"></p> -->
+            </div>
+            <div class="col-md-6"><h3>Flagged User: </h3></div>
+            <div class="author_info cole-xl 6 col-md-6">
+              <h4> {{flags.name}} </h4>
+              <h5> Ward {{flags.ward}} </h5>
+            </div>
+            <br><br><br><br>
+            <h3>Flag Comment:</h3> <p>{{flags.idea_flag_description}}</p>
+          </div>
+          <td class="col-xl-4 col-md-3" ng-show="flags.active">
+            <button ng-click="afc.deleteIdea(flags)" class="btn btn-danger btn-xs">DELETE ITEM </button>
+          </td>
+          <td class="col-xl-4 col-md-3" ng-hide="flags.active">
+            <button ng-click="afc.updateFlaggedIdea(flags)" class="btn btn-primary btn-xs">SAVE EDIT</button>
+          </td>
+          <td class="col-xl-4 col-md-3" ng-hide="flags.active">
+          <button ng-click="afc.deleteFlaggedIdeaFlag(flags)" class="btn btn-okay btn-xs">RESOLVED FLAG</button>
+        </td>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+/* ============================================================================= *
+*        MANAGE FLAGGED COMMENTS                                                    *
+* ============================================================================= */
+-->
+
+<div style="background-color:#F8F8F8; padding-top: 30px; padding-bottom: 30px">
+  <div class="container" style="  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  "style="padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;">
+  <div class="admin-border">
+    <h2 style="text-align:center;">Manage Flagged Comments</h2>
+  </div>
+
+</div>
+
+<tabl>
+<div class = 'cardContainer'>
+<div class = 'container'>
+    <!--//IDEACARDS SECTION//-->
+      <!-- START NG REPEAT BELOW HERE -->
+     <div ng-repeat="flags in afc.commentToFlagObject.list" style="margin-left: 65px !important;"class="singleCard cardCenter col-md-5">
+        <div class="card_content">
+          <h2><textarea placeholder="{{flags.title}}"></textarea></h2>
+          <p>Comment Description: <textarea ng-model="flags.description">{{flags.description}}</textarea> </p>
+          <div class="author_content">
+            <div class ="author_img col-xl-3 col-md-3">
+              <!-- <p> <img ng-src="{{flags.photo}}"></p> -->
+            </div>
+             <div class="author_info cole-xl 9 col-md-9">
+              <h4> {{flags.name}} </h4>
+              <h5> Ward {{flags.ward}} </h5>
+            </div>
+            <br><br><br><br>
+            <h3>Flag Comment:</h3> <p>{{flags.flag_comment}} {{flags.idea_flag_description}}</p>
+          </div>
+          <td class="col-xl-4 col-md-3" ng-show="flag.active">
+            <button ng-click="afc.deleteComment(flags)" class="btn btn-danger btn-xs">DELETE ITEM </button>
+          </td>
+          <td class="col-xl-4 col-md-3" ng-hide="flag.active">
+            <button ng-click="afc.updateFlaggedComment(flags)" class="btn btn-primary btn-xs">SAVE EDIT</button>
+          </td>
+      <td class="col-xl-4 col-md-3" ng-hide="flag.active">
+          <button ng-click="afc.deleteFlaggedComment(flags)" class="btn btn-okay btn-xs">RESOLVED FLAG</button>
+        </td>
+        </div>
+      </div>
+    </div>
+</div>
+
+</div>

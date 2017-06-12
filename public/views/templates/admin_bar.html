@@ -1,0 +1,6 @@
+<div ng-controller="LoginController as lc">
+  <div ng-show="lc.isAdmin.list == true" class="row dashNav">
+    <div class="col-xs-6 col-md-6 col-lg-6"><button ng-click="lc.adminView()" class="adminDash"><i class="fa fa-tachometer" style="font-size: 20px;"aria-hidden="true"></i> Go to Dashboard</button></div>
+    <div class="col-xs-6 col-md-6 col-lg-6" style="text-align: right; line-height: 45px;">Welcome {{lc.name}}!</div>
+  </div>
+</div>

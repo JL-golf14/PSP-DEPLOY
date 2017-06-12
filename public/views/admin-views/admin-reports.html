@@ -1,0 +1,183 @@
+<!--
+/* ============================================================================= *
+*        ADMIN  NAVIGATION                                                       *
+* ============================================================================= */
+-->
+<div ng-include="'/views/templates/adminNav.html'"></div>
+
+<!--
+/* ============================================================================= *
+*       GRAPH OF ACTIVE USERS BY WARD                                            *
+* ============================================================================= */
+-->
+
+<div style="background-color:#F8F8F8; padding-top: 30px; padding-bottom: 15px">
+  <div class="container" style="padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;d">
+    <h2 style="text-align:center; padding-top: 30px; padding-bottom: 30px;"> Graph of Active Users By Ward </h2>
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    <div class="col-lg-8 col-md-8 col-sm-8>"><canvas id="myChart"></canvas></div>
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+  </div>
+
+</div>
+
+<!--
+/* ============================================================================= *
+*       FILTERABLE DATA                                                          *
+* ============================================================================= */
+-->
+<div style="background-color:#F8F8F8; padding-top: 15px; padding-bottom: 30px">
+  <div class="container" style="text-align: center; padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;d">
+
+    <h3 style="text-align: left;"> Graphical Data </h3>
+
+    <!-- <h3 style="text-align: left;"> Graph of Ideas by Ward </h3> -->
+
+    <!--//FILTERS//-->
+    <div class="filters" style="padding-top: 30px; padding-bottom: 30px;">
+      <div class="col-md-3">
+        <select ng-model="arc.filterObject.ward" name="Wards">
+          <option value="1"> Ward 1 </option>
+          <option value="2"> Ward 2 </option>
+          <option value="3"> Ward 3 </option>
+          <option value="4"> Ward 4 </option>
+          <option value="5"> Ward 5 </option>
+          <option value="6"> Ward 6 </option>
+          <option value="7"> Ward 7 </option>
+          <option value="8"> Ward 8 </option>
+          <option value="9"> Ward 9 </option>
+          <option value="10"> Ward 10 </option>
+          <option value="11"> Ward 11 </option>
+          <option value="12"> Ward 12 </option>
+          <option value="13"> Ward 13 </option>
+          <option value="0"> Other </option>
+          <option value="allWards"> All Wards </option>
+        </select>
+      </div>
+
+      <div class=" col-md-3">
+        <select ng-model="arc.filterObject.subtopic" name="Subtopics">
+          <option ng-repeat="subtopic in arc.subTopic.list" value="{{subtopic.id}}"> {{subtopic.title}} </option>
+          <!-- <option value="{{subtopic.subtopics_id}}"> subtopic {{subtopic.title}} </option> -->
+        </select>
+      </div>
+
+      <div class=" col-md-3">
+        <select ng-model="arc.filterObject.liked_loved">
+          <option value="ideas_likes"> Most Liked </option>
+          <option value="ideas_loves"> Most Loved </option>
+        </select>
+      </div>
+
+      <div class=" col-md-3">
+        <button ng-click="arc.getFilteredResult(arc.filterObject)" class = "btn-flt"> Filter </button>
+      </div>
+
+    </div>
+    <!-- TABLE -->
+    <div>
+      <table>
+        <thead>
+          <tr ng-if="arc.filterObject.liked_loved == null">
+            <th> User Name </th>
+            <th> User Email </th>
+            <th> Idea Title </th>
+            <th> Idea description </th>
+            <th> Total Likes/Loves </th>
+          </tr>
+          <tr ng-if="arc.filterObject.liked_loved == 'ideas_likes'">
+            <th> User Name </th>
+            <th> User Email </th>
+            <th> Idea Title </th>
+            <th> Idea description </th>
+            <th> Ward </th>
+            <th> Total LIkes </th>
+          </tr>
+          <tr ng-if="arc.filterObject.liked_loved == 'ideas_loves'">
+            <th> User Name </th>
+            <th> User Email </th>
+            <th> Idea Title </th>
+            <th> Idea description </th>
+            <th> Ward </th>
+            <th> Total Loves </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="dbFilterObject in arc.dbFilterObject.list">
+            <td> {{dbFilterObject.name}} </td>
+            <td> {{dbFilterObject.email}} </td>
+            <td> {{dbFilterObject.title}} </td>
+            <td> {{dbFilterObject.description}} </td>
+            <td> {{dbFilterObject.ward}} </td>
+            <td ng-if="arc.filterObject.liked_loved == 'ideas_likes'"> {{dbFilterObject.ideas_likes_count}} </td>
+            <td ng-if="arc.filterObject.liked_loved == 'ideas_loves'"> {{dbFilterObject.ideas_loves_count}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+
+
+
+
+
+    <!--//DATA//-->
+    <!--//GRAPH//-->
+
+    <!-- <div class="data" style="padding-top: 30px; padding-bottom: 30px;">
+
+    <div style="border:1px solid lightgrey; height: 400px; margin-top: 20px;" class="col-md-5">
+  </div> -->
+  <!--//TEXT INFORMATION//-->
+  <!-- <div style="background-color:#F8F8F8; height: 400px; margin-top: 20px;" class="col-md-7">
+</div>
+
+<div class="data" style="padding-top: 30px; padding-bottom: 30px;">
+<div class="ct-chart ct-major-twelfth" id="chart2"></div>
+<div style="border:1px solid lightgrey; height: 400px; margin-top: 20px;" class="col-md-5">
+</div> -->
+<!--//TEXT INFORMATION//-->
+<!-- <div style="background-color:#F8F8F8; height: 400px; margin-top: 20px;" class="col-md-7">
+</div> -->
+
+
+<!-- filtered result area -->
+
+
+
+</div>
+</div>
+</div>
+
+<!--
+/* ============================================================================= *
+*       USER LOVES                                                              *
+* ============================================================================= */
+-->
+
+<div style="background-color:#F8F8F8; padding-top: 15px; padding-bottom: 30px">
+  <div class="container" style="text-align: center; padding-top:40px; padding-bottom:40px; background-color: white; border: 1px solid #eeeeee;d">
+    <h3 style="text-align: left;"> User Loves List </h3>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th> User Name </th>
+            <th> User Email </th>
+            <th> Idea </th>
+            <th> Subtopic </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="user in arc.userLoves.list">
+            <td> {{user.user_name}} </td>
+            <td> {{user.user_email}} </td>
+            <td> {{user.idea_title}} </td>
+            <td> {{user.subtopic_title}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
