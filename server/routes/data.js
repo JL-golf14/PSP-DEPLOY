@@ -4,14 +4,14 @@ var router = express.Router();
 // var pool = require('../modules/database-config');
 var pg = require('pg');
 // var connectionString = require('../modules/database-config');
-var config = {
-  database: 'd77i76hhk1sscp',
-  host: 'ec2-23-21-220-152.compute-1.amazonaws.com',
-  URI:'postgres://qkejghlzsxlabo:9917d8e5a9d2c463018311aad104ab145a6f18b1941bba8505cfcde707ef686b@ec2-23-21-220-152.compute-1.amazonaws.com:5432/d77i76hhk1sscp',
-  port: 5432,
-  max: 10,
-  idleTimeoutMillis: 30000
-};//end of config
+// var config = {
+//   database: 'd77i76hhk1sscp',
+//   host: 'ec2-23-21-220-152.compute-1.amazonaws.com',
+//   // URI:'postgres://qkejghlzsxlabo:9917d8e5a9d2c463018311aad104ab145a6f18b1941bba8505cfcde707ef686b@ec2-23-21-220-152.compute-1.amazonaws.com:5432/d77i76hhk1sscp',
+//   port: 5432,
+//   max: 10,
+//   idleTimeoutMillis: 30000
+// };//end of config
 
 //pool / pg constructor function
 var pool = new pg.Pool(config);
