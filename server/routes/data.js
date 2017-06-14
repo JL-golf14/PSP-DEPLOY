@@ -12,22 +12,15 @@ var pg = require('pg');
 //   max: 10,
 //   idleTimeoutMillis: 30000
 // };//end of config
-// config = {
-//   user: process.env.PG_USER || null, //env var: PGUSER
-//   password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD
-//   host: process.env.DATABASE_SERVER || 'localhost', // Server hosting the postgres database
-//   port: process.env.DATABASE_PORT || 5432, //env var: PGPORT
-//   database: process.env.DATABASE_NAME || 'psi', //env var: PGDATABASE
-//   max: 10, // max number of clients in the pool
-//   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
-// };
-
-var config = {
-  Host:'ec2-23-21-220-152.compute-1.amazonaws.com',
-  Database:'d77i76hhk1sscp',
-  User:'qkejghlzsxlabo',
-  Password:'9917d8e5a9d2c463018311aad104ab145a6f18b1941bba8505cfcde707ef686b'
-}
+config = {
+  user: process.env.PG_USER || null, //env var: PGUSER
+  password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD
+  host: process.env.DATABASE_SERVER || 'localhost', // Server hosting the postgres database
+  port: process.env.DATABASE_PORT || 5432, //env var: PGPORT
+  database: process.env.DATABASE_NAME || 'psi', //env var: PGDATABASE
+  max: 20, // max number of clients in the pool
+  idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+};
 //pool / pg constructor function
 var pool = new pg.Pool(config);
 
