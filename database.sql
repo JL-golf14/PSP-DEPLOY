@@ -1391,7 +1391,7 @@ COPY users (id, name, email, address, ward, admin, active, city, state, zipcode,
 55	Troy Stewart\n	filleremail@gmail.com	730 Stinson BLVD Unit 408	8	f	t	Minneapolis	Minnesota	55413	https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg
 57	William “Billy” Kaplan\n	filleremail@gmail.com	730 Stinson BLVD Unit 408	10	f	t	Minneapolis	Minnesota	55413	https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg
 75	Chris Stanston	chris.stssanston@gmail.com	730 Stinson BLVD Unit 408	1	f	t	Minneapolis	Minnesota	55413	https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg
-64	Jeremy Leif	jeremy.lieef@gmail.com	730 Stinson BLVD Unit 408	5	f	t	Minneapolis	Minnesota	55413	https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAxOAAAAJDRmYWExNmRhLTY3MGEtNDQ4MS1iMzYyLWViOTQyOTA0MDhkOQ.jpg
+14	Jeremy Leif	jeremy.leif@gmail.com	730 Stinson BLVD Unit 408	5	t	t	Minneapolis	Minnesota	55413	https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAxOAAAAJDRmYWExNmRhLTY3MGEtNDQ4MS1iMzYyLWViOTQyOTA0MDhkOQ.jpg
 77	Chris Stanston	chris.stanstton@gmail.com	730 Stinson BLVD Unit 408	1	f	t	Minneapolis	Minnesota	55413	https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg
 79	Chris Stanston	chris.stanston@gmail.com	730 Stinson BLVD Unit 408	1	f	t	Minneapolis	Minnesota	55413	https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg
 \.
