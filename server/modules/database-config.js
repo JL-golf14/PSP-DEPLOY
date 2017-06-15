@@ -50,11 +50,11 @@ if (process.env.DATABASE_URL) {
 
 } else {
   config = {
-    user: process.env.PG_USER || null, //env var: PGUSER
-    password: process.env.DATABASE_SECRET || null, //env var: PGPASSWORD
-    host: process.env.DATABASE_SERVER || 'localhost', // Server hosting the postgres database
+    user: process.env.User || null, //env var: PGUSER
+    password: process.env.Password || null, //env var: PGPASSWORD
+    host: process.env.Host || 'localhost', // Server hosting the postgres database
     port: process.env.DATABASE_PORT || 5432, //env var: PGPORT
-    database: process.env.DATABASE_NAME || 'psi', //env var: PGDATABASE
+    database: process.env.Database || 'phi', //env var: PGDATABASE
     max: 10, // max number of clients in the pool
     idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
   };
